@@ -182,6 +182,8 @@ public class NhanVienJPanel extends javax.swing.JPanel {
 
         jLabel3.setText("Ngày sinh");
 
+        dateNgSinh.setDateFormatString("yyyy-MM-dd");
+
         jLabel10.setText("Vai trò");
 
         buttonGroup1.add(rdNam);
