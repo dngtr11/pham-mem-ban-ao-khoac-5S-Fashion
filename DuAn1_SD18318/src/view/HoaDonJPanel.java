@@ -1,14 +1,43 @@
 
 package view;
 
+import java.util.List;
+import javax.swing.table.DefaultTableModel;
+import model.HoaDon;
+import service.HoaDonService;
+import service.NhanVienService;
+
 /**
  *
  * @author PC
  */
 public class HoaDonJPanel extends javax.swing.JPanel {
-
+    DefaultTableModel dtm = new DefaultTableModel();
+    HoaDonService serviceHoaDon = new HoaDonService();
+    NhanVienService serviceNv = new NhanVienService();
     public HoaDonJPanel() {
         initComponents();
+        dtm = (DefaultTableModel) tbHoaDon.getModel();
+        showData(serviceHoaDon.getAll());
+    }
+    int indexHoaDon = 1;
+    void showData(List<HoaDon>list){
+        dtm.setRowCount(0);
+        for (HoaDon hd : list) {
+            String maNV = serviceNv.getById(hd.getIdNV()).getMaNV();
+            dtm.addRow(new Object[]{
+                indexHoaDon++,
+                hd.getMaHD(),
+                hd.getTongTien(),
+                hd.getNgayDat(),
+                hd.getNgayGiao(),
+                maNV,
+                null,
+                hd.getPhiVanChuyen(),
+                hd.getGhiChu(),
+                hd.isTrangThai()
+            });
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -19,7 +48,7 @@ public class HoaDonJPanel extends javax.swing.JPanel {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbHoaDon = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -64,7 +93,7 @@ public class HoaDonJPanel extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbHoaDon.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -75,8 +104,8 @@ public class HoaDonJPanel extends javax.swing.JPanel {
                 "STT", "MaHD", "TongTien", "NgayDat", "NgayGiao", "MaNV", "TenKH", "PhiVanChuyen", "GhiChu", "TrangThai"
             }
         ));
-        jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jTable1);
+        tbHoaDon.setSelectionBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setViewportView(tbHoaDon);
 
         jButton1.setBackground(new java.awt.Color(180, 220, 241));
         jButton1.setText("<<");
@@ -154,7 +183,7 @@ public class HoaDonJPanel extends javax.swing.JPanel {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 258, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 825, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -442,10 +471,10 @@ public class HoaDonJPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable tbHoaDon;
     // End of variables declaration//GEN-END:variables
 }

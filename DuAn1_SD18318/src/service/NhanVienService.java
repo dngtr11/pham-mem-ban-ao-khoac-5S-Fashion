@@ -9,6 +9,7 @@ import java.util.List;
 import model.NhanVien;
 import java.sql.*;
 import java.util.ArrayList;
+import model.HoaDon;
 
 /**
  *
@@ -83,7 +84,35 @@ public class NhanVienService {
         }
         return check > 0;
     }
-
+    public NhanVien getById(int id){
+        List<NhanVien> listById = new ArrayList<>();
+        try {
+            String GET_BY_ID = """
+                                       select * from NhanVien where id = ?
+                                       """;
+            Connection con = SQLServerConnection.getConnection("DUAN1");
+            PreparedStatement ps = con.prepareStatement(GET_BY_ID);
+            ps.setObject(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                NhanVien nv = new NhanVien();
+                nv.setIdNV(rs.getInt(1));
+                nv.setMaNV(rs.getString(2));
+                nv.setTenNV(rs.getString(3));
+                nv.setNgSinh(rs.getDate(4));
+                nv.setGioiTinh(rs.getBoolean(5));
+                nv.setDiaChi(rs.getString(6));
+                nv.setSdt(rs.getString(7));
+                nv.setEmail(rs.getString(8));
+                nv.setVaiTro(rs.getBoolean(9));
+                listById.add(nv);
+            }
+            
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listById.get(0);
+    }
     public static void main(String[] args) {
         List<NhanVien> list = new NhanVienService().getAll();
         System.out.println(list);
