@@ -8,20 +8,20 @@ import java.util.Date;
 
 /**
  *
- * @author Dung Tran
+
  */
 public class KhachHang {
+
     private int id;
-    private int idkH;
     private String maKH;
     private String tenKH;
     private boolean gioiTinh;
     private Date ngaySinh;
     private String sdt;
-    private String email ;
-    private String diaChi ;
-    private Date ngayTao ;
-    private Date ngaySua ;
+    private String email;
+    private String diaChi;
+    private Date ngayTao;
+    private Date ngaySua;
     private String nguoiTao;
     private String nguoiSua;
     private boolean trangThai;
@@ -29,9 +29,8 @@ public class KhachHang {
     public KhachHang() {
     }
 
-    public KhachHang(int id, int idkH, String maKH, String tenKH, boolean gioiTinh, Date ngaySinh, String sdt, String email, String diaChi, Date ngayTao, Date ngaySua, String nguoiTao, String nguoiSua, boolean trangThai) {
-        this.id = id;
-        this.idkH = idkH;
+    public KhachHang(String maKH, String tenKH, boolean gioiTinh, Date ngaySinh, String sdt, String email, String diaChi) {
+
         this.maKH = maKH;
         this.tenKH = tenKH;
         this.gioiTinh = gioiTinh;
@@ -39,11 +38,6 @@ public class KhachHang {
         this.sdt = sdt;
         this.email = email;
         this.diaChi = diaChi;
-        this.ngayTao = ngayTao;
-        this.ngaySua = ngaySua;
-        this.nguoiTao = nguoiTao;
-        this.nguoiSua = nguoiSua;
-        this.trangThai = trangThai;
     }
 
     public int getId() {
@@ -52,14 +46,6 @@ public class KhachHang {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getIdkH() {
-        return idkH;
-    }
-
-    public void setIdkH(int idkH) {
-        this.idkH = idkH;
     }
 
     public String getMaKH() {
@@ -157,5 +143,5 @@ public class KhachHang {
     public void setTrangThai(boolean trangThai) {
         this.trangThai = trangThai;
     }
-    
+
 }
