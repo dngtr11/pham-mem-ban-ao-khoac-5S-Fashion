@@ -12,6 +12,7 @@ import java.util.Date;
  */
 public class KhachHang {
     private int id;
+    private int idkH;
     private String maKH;
     private String tenKH;
     private boolean gioiTinh;
@@ -28,13 +29,20 @@ public class KhachHang {
     public KhachHang() {
     }
 
-    public KhachHang(String maKH, String tenKH, boolean gioiTinh, Date ngaySinh, String sdt, String diaChi, boolean trangThai) {
+    public KhachHang(int id, int idkH, String maKH, String tenKH, boolean gioiTinh, Date ngaySinh, String sdt, String email, String diaChi, Date ngayTao, Date ngaySua, String nguoiTao, String nguoiSua, boolean trangThai) {
+        this.id = id;
+        this.idkH = idkH;
         this.maKH = maKH;
         this.tenKH = tenKH;
         this.gioiTinh = gioiTinh;
         this.ngaySinh = ngaySinh;
         this.sdt = sdt;
+        this.email = email;
         this.diaChi = diaChi;
+        this.ngayTao = ngayTao;
+        this.ngaySua = ngaySua;
+        this.nguoiTao = nguoiTao;
+        this.nguoiSua = nguoiSua;
         this.trangThai = trangThai;
     }
 
@@ -44,6 +52,14 @@ public class KhachHang {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getIdkH() {
+        return idkH;
+    }
+
+    public void setIdkH(int idkH) {
+        this.idkH = idkH;
     }
 
     public String getMaKH() {

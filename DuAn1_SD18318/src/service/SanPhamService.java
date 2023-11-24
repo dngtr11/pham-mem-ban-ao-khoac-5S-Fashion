@@ -13,4 +13,12 @@ import model.SanPham;
  */
 public interface SanPhamService {
     List<SanPham> getAll();
+    SanPham getById(int id);
+    List<SanPham> phanTrang(int page,int limit);
+    int countSp();
+    int getMaxPagesSp(int itemsPerPage);
+    List<SanPham> search(String ma);
+    int getSoLuongByID(int id);
+    String addSP(SanPham sp);
+    
 }

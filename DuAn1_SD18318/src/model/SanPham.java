@@ -9,13 +9,13 @@ package model;
  * @author anh
  */
 public class SanPham {
-    private String idSp;
+    private int idSp;
     private String maSp;
     private String tenSp;
 
     public SanPham() {
     }
-
+    
     public SanPham(String maSp, String tenSp) {
         this.maSp = maSp;
         this.tenSp = tenSp;
@@ -36,6 +36,22 @@ public class SanPham {
     public void setTenSp(String tenSp) {
         this.tenSp = tenSp;
     }
+
+    public int getIdSp() {
+        return idSp;
+    }
+
+    public void setIdSp(int idSp) {
+        this.idSp = idSp;
+    }
+
+    @Override
+    public String toString() {
+        return "SanPham{" + "idSp=" + idSp + ", maSp=" + maSp + ", tenSp=" + tenSp + '}';
+    }
+
     
 
+   
+        
 }

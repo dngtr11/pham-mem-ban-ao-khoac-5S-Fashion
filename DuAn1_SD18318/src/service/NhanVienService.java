@@ -84,7 +84,8 @@ public class NhanVienService {
         }
         return check > 0;
     }
-    public NhanVien getById(int id){
+
+    public NhanVien getById(int id) {
         List<NhanVien> listById = new ArrayList<>();
         try {
             String GET_BY_ID = """
@@ -107,12 +108,13 @@ public class NhanVienService {
                 nv.setVaiTro(rs.getBoolean(9));
                 listById.add(nv);
             }
-            
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return listById.get(0);
     }
+
     public static void main(String[] args) {
         List<NhanVien> list = new NhanVienService().getAll();
         System.out.println(list);

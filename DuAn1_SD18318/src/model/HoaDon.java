@@ -19,26 +19,39 @@ public class HoaDon {
     private String tenNguoiNhan;
     private String SDT ;
     private float tongTien;
-    private Date ngayDat;
-    private Date ngayGiao;
-    private Date ngayTao;
-    private Date ngaySua;
+    private java.sql.Date ngayDat;
+    private java.sql.Date ngayGiao;
+    private java.sql.Date ngayTao;
+    private java.sql.Date ngaySua;
     private String nguoiTao;
     private String nguoiSua;
     private float phiVanChuyen;
+    private String hinhThuc ;
+    private String diaChi ;
     private String ghiChu;
     private boolean trangThai;
 
     public HoaDon() {
     }
 
-    public HoaDon(String tenNguoiNhan, String SDT, float tongTien, Date ngayDat, Date ngayGiao, float phiVanChuyen, String ghiChu, boolean trangThai) {
+    public HoaDon(int id, String maHD, int idKH, int idNV, int idGG, String tenNguoiNhan, String SDT, float tongTien, java.sql.Date ngayDat, java.sql.Date ngayGiao, java.sql.Date ngayTao, java.sql.Date ngaySua, String nguoiTao, String nguoiSua, float phiVanChuyen, String hinhThuc, String diaChi, String ghiChu, boolean trangThai) {
+        this.id = id;
+        this.maHD = maHD;
+        this.idKH = idKH;
+        this.idNV = idNV;
+        this.idGG = idGG;
         this.tenNguoiNhan = tenNguoiNhan;
         this.SDT = SDT;
         this.tongTien = tongTien;
         this.ngayDat = ngayDat;
         this.ngayGiao = ngayGiao;
+        this.ngayTao = ngayTao;
+        this.ngaySua = ngaySua;
+        this.nguoiTao = nguoiTao;
+        this.nguoiSua = nguoiSua;
         this.phiVanChuyen = phiVanChuyen;
+        this.hinhThuc = hinhThuc;
+        this.diaChi = diaChi;
         this.ghiChu = ghiChu;
         this.trangThai = trangThai;
     }
@@ -107,35 +120,35 @@ public class HoaDon {
         this.tongTien = tongTien;
     }
 
-    public Date getNgayDat() {
+    public java.sql.Date getNgayDat() {
         return ngayDat;
     }
 
-    public void setNgayDat(Date ngayDat) {
+    public void setNgayDat(java.sql.Date ngayDat) {
         this.ngayDat = ngayDat;
     }
 
-    public Date getNgayGiao() {
+    public java.sql.Date getNgayGiao() {
         return ngayGiao;
     }
 
-    public void setNgayGiao(Date ngayGiao) {
+    public void setNgayGiao(java.sql.Date ngayGiao) {
         this.ngayGiao = ngayGiao;
     }
 
-    public Date getNgayTao() {
+    public java.sql.Date getNgayTao() {
         return ngayTao;
     }
 
-    public void setNgayTao(Date ngayTao) {
+    public void setNgayTao(java.sql.Date ngayTao) {
         this.ngayTao = ngayTao;
     }
 
-    public Date getNgaySua() {
+    public java.sql.Date getNgaySua() {
         return ngaySua;
     }
 
-    public void setNgaySua(Date ngaySua) {
+    public void setNgaySua(java.sql.Date ngaySua) {
         this.ngaySua = ngaySua;
     }
 
@@ -163,6 +176,22 @@ public class HoaDon {
         this.phiVanChuyen = phiVanChuyen;
     }
 
+    public String getHinhThuc() {
+        return hinhThuc;
+    }
+
+    public void setHinhThuc(String hinhThuc) {
+        this.hinhThuc = hinhThuc;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
     public String getGhiChu() {
         return ghiChu;
     }
@@ -179,7 +208,5 @@ public class HoaDon {
         this.trangThai = trangThai;
     }
 
-
-    
     
 }
